@@ -1,33 +1,61 @@
 exports.run = (client, message, args) => {
+  const fs = require('fs');
+
+  let list = '';
+  
+fs.readdir('./', (err, files) => {
+  files.forEach(file => {
+    list = list + file + '/n'
+  });
+})
+  
+  let prefix = process.env.prefix
+  
     const embed = {
   "color": 4886754,
   "author": {
-    "name": "Boopie's Commands!"
+    "name": "Commands"
   },
   "fields": [
     {
-      "name": "^help",
-      "value": "Displays the message\nyou're seeing right now!\n*(You silly goose.)*\n"
+      "name": prefix + "help",
+      "value": "How do I work this thing?!?"
     },
     {
-      "name": "^ping",
-      "value": "See if I respond and how\nlong it takes me to.\n"
+      "name": prefix + "ping",
+      "value": "Pong?"
     },
     {
-      "name": "^hello",
-      "value": "Say hello to me. :)"
+      "name": prefix + "status",
+      "value": "Check the status of the bot."
     },
     {
-      "name": "^avatar [@user]",
-      "value": "Get the link of the avatar\na user (or you if you don't\nmention anyone).\n"
+      "name": prefix + "avatar [@user]",
+      "value": "Get the link of the avatar a user (or you if you don't mention anyone)."
     },
     {
-      "name": "^8ball <question>",
-      "value": "Ask me a yes or no question\nand I'll give you an answer!\n"
+      "name": prefix + "8ball <question>",
+      "value": "Ask the 8 Ball! Or actually, a random number generator."
     },
     {
-      "name": "^github",
-      "value": "Get the link to the github repo!\n"
+      "name": prefix + "say",
+      "value": "I repeat what you say."
+    },
+    {
+      "name": prefix + "neo [sitename]",
+      "value": "Get Neocities site stats."
+    },
+    {
+      "name": prefix + "figlet [font] [text]",
+      "value": "Make text into ASCII art using Figlet! See all installed fonts with " + prefix + "figlet fonts"
+    },
+    {
+      "name": prefix + "yt [query]",
+      "value": "Search for a video on YouTube."
+    },
+    {
+      "name": prefix + "face",
+      "value": "Cool ASCII faces."
     }
   ]
 };

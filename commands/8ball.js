@@ -17,5 +17,5 @@ exports.run = (client, message, args) => {
     ]
     var randomAnswer = answers[Math.floor(Math.random() * answers.length)];
   
-    message.channel.send(randomAnswer).catch(console.error);
+    message.channel.send(':8ball: **`' + randomAnswer + '`** :8ball:').catch(console.error);
 }

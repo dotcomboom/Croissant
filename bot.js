@@ -10,13 +10,13 @@ app.get("/", (request, response) => {
   response.sendStatus(200);
 });
 app.listen(process.env.PORT);
+console.log('http://' + process.env.projectname +  '.glitch.me/')
 setInterval(() => {
-  http.get('http://boopie.glitch.me/');
-}, 280000);
+  http.get('http://' + process.env.projectname +  '.glitch.me/');
+}, 140000);
+// was 280000
 
-const config = require("./config.json");
-
-const prefix = config.prefix; //Set our prefix
+const prefix = process.env.prefix; //Set our prefix
 
 // This loop reads the /events/ folder and attaches each event file to the appropriate event.
 fs.readdir("./events/", (err, files) => {

@@ -1,5 +1,10 @@
 exports.run = (client, message, args) => {
-    console.log("Sent message.")
-    message.channel.send("Ping!").catch(console.error);
-    message.channel.send(new Date().getTime() - message.createdTimestamp + " ms").catch(console.error);
+    const embed = {
+        "color": 4886754,
+        "fields": [{
+            "name": "Ping!",
+            "value": new Date().getTime() - message.createdTimestamp + " ms"
+        }]
+    };
+    message.channel.send({embed}).catch(console.error);
 }
