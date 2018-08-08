@@ -19,6 +19,12 @@ exports.run = (client, message, args) => {
         console.dir(err);
         return;
     }
+      for (var i = fonts.length - 1; i >= 0; i--) {
+      // https://stackoverflow.com/a/5767335
+        if(fonts[i].includes(' ')) {
+           fonts.splice(i, 1);
+        }
+      }
       let fontlist = chunkSubstr(fonts.join(', '), 1900)
       message.channel.send('__***Fonts***__').catch(console.error);
       fontlist.forEach(function (item) {

@@ -1,8 +1,9 @@
+const Discord = require("discord.js");
 exports.run = (client, message, args) => {
     const embed = {
         "color": 4886754,
         "fields": [{
-            "name": "Ping!",
+            "name": "Pong!",
             "value": new Date().getTime() - message.createdTimestamp + " ms"
         }]
     };

@@ -16,16 +16,10 @@
     "neocities": "^0.0.3",
     "cowsay": "^1.3.1",
     "figlet": "^1.2.0",
-    "holy-bible": "^1.2.0",
     "youtube-search": "^1.1.1",
     "cool-ascii-faces": "^1.3.4",
-    "color-thief": "^2.2.3",
-    "image": "^1.0.2",
-    "canvas": "^1.6.11",
     "request": "^2.87.0",
     "cheerio": "^0.22.0",
-    "htmlencode": "^0.0.4",
-    "color-thief-standalone": "^1.0.3",
-    "canvas-prebuilt": "^1.6.3"
+    "htmlencode": "^0.0.4"
   }
 }
