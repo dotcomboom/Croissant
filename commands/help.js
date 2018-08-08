@@ -19,7 +19,7 @@ fs.readdir('./', (err, files) => {
   .setColor(color)
   .addField(prefix + 'help', 'How do I work this thing?!?', true)
   .addField(prefix + 'ping', 'Pong?', true)
-  .addField(prefix + 'status', 'Check the status of the bot.', true)
+  .addField(prefix + 'stats', 'Bot statistics.', true)
   .addField(prefix + 'avatar [@user]', 'Get the avatar of a user.', true)
   .addField(prefix + '8ball [question]', 'Ask a question to math.random!', true)
   .addField(prefix + 'neo [sitename]', 'Get Neocities site stats.', true)
