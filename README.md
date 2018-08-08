@@ -9,13 +9,12 @@ Items marked with a [B] are original or modified Boopie commands.
   <li>[B] avatar - gets the avatar of a user</li>
   <li>[B] help - helps you</li>
   <li>[B] ping - send how long it took to recieve the ping</li>
-  <li>[B] say - says whatever you want it to</li>
   <li>cowsay - a cow says whatever you want it to</li>
   <li>figlet - make ascii art using figlet fonts</li>
   <li>neo - get stats for neocities users</li>
   <li>yt - search youtube</li>
   <li>face - random ascii face</li>
-  <li>status - bot stats</li>
+  <li>stats - bot stats</li>
 </ul>
 
 ## adding to your server

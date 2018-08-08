@@ -1,3 +1,5 @@
+const Discord = require("discord.js");
+
 exports.run = (client, message, args) => {
   const fs = require('fs');
 
@@ -11,53 +13,19 @@ fs.readdir('./', (err, files) => {
   
   let prefix = process.env.prefix
   
-    const embed = {
-  "color": 4886754,
-  "author": {
-    "name": "Commands"
-  },
-  "fields": [
-    {
-      "name": prefix + "help",
-      "value": "How do I work this thing?!?"
-    },
-    {
-      "name": prefix + "ping",
-      "value": "Pong?"
-    },
-    {
-      "name": prefix + "status",
-      "value": "Check the status of the bot."
-    },
-    {
-      "name": prefix + "avatar [@user]",
-      "value": "Get the link of the avatar a user (or you if you don't mention anyone)."
-    },
-    {
-      "name": prefix + "8ball <question>",
-      "value": "Ask the 8 Ball! Or actually, a random number generator."
-    },
-    {
-      "name": prefix + "say",
-      "value": "I repeat what you say."
-    },
-    {
-      "name": prefix + "neo [sitename]",
-      "value": "Get Neocities site stats."
-    },
-    {
-      "name": prefix + "figlet [font] [text]",
-      "value": "Make text into ASCII art using Figlet! See all installed fonts with " + prefix + "figlet fonts"
-    },
-    {
-      "name": prefix + "yt [query]",
-      "value": "Search for a video on YouTube."
-    },
-    {
-      "name": prefix + "face",
-      "value": "Cool ASCII faces."
-    }
-  ]
-};
-message.channel.send({ embed }).catch(console.error);
+  let color = 4886754;
+  let embed = new Discord.RichEmbed()
+  .setTitle("Commands")
+  .setColor(color)
+  .addField(prefix + 'help', 'How do I work this thing?!?', true)
+  .addField(prefix + 'ping', 'Pong?', true)
+  .addField(prefix + 'status', 'Check the status of the bot.', true)
+  .addField(prefix + 'avatar [@user]', 'Get the avatar of a user.', true)
+  .addField(prefix + '8ball [question]', 'Ask a question to math.random!', true)
+  .addField(prefix + 'neo [sitename]', 'Get Neocities site stats.', true)
+  .addField(prefix + 'figlet [font] [text]', 'Generate ASCII art text with Figlet. Use ' + prefix + 'figlet fonts for a list.', true)
+  .addField(prefix + 'yt [query]', 'Search for YouTube videos.', true)
+  .addField(prefix + 'face', 'Cool ASCII faces.', true)
+  
+  message.channel.send(embed).catch(console.error);
 }
