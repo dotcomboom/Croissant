@@ -26,6 +26,7 @@ fs.readdir('./', (err, files) => {
   .addField(prefix + 'figlet [font] [text]', 'Generate ASCII art text with Figlet. Use ' + prefix + 'figlet fonts for a list.', true)
   .addField(prefix + 'yt [query]', 'Search for YouTube videos.', true)
   .addField(prefix + 'face', 'Cool ASCII faces.', true)
+  .addField(prefix + 'role [list/remove (role)/get (role)]', 'Obtain selfroles. (start with **+**)', true)
   
   message.channel.send(embed).catch(console.error);
 }

@@ -32,14 +32,8 @@ function scrape (username, cache) {
          feed.push($(this).find('.content').text().trim().split('\n')[0]); 
         }
       });
-      /*
-      let feedhtml = '<ul class="neohitz-posts-list"></ul>'
-      if (feed.length > 0) {
-        feedhtml = '<ul class="neohitz-posts-list"><li>' + feed.join('</li><li>') + '</li></ul>'
-      }
-      feedhtml = feedhtml.replace('<li></li>', '')*/
       
-      arr.push(feed[0]);
+      arr.push(feed);
       
       arr.push('https://neocities.org' + $('.screenshot').css("background-image").replace('url(','').replace(')',''));
       
@@ -71,7 +65,7 @@ exports.run = (client, message, args) => {
     let tips = stats[3];
     updated(username).then((updated) => {
       let created = stats[5];
-      let quote = stats[6];
+      let quote = stats[6][0];
       if (quote) {
          quote = `*"${quote}"*`;
       } else {

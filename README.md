@@ -14,6 +14,7 @@ Items marked with a [B] are original or modified Boopie commands.
 - yt - search youtube
 - face - random ascii face
 - stats - bot stats
+- role - selfroles (any role in the guild that starts with + is a selfrole and can be obtained by any user)
 
 ## adding to your server
 
