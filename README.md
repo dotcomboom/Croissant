@@ -4,21 +4,22 @@ Croissant is a fork of the boopie Discord bot with more commands and LIT 🔥�
 
 ## commands
 Items marked with a [B] are original or modified Boopie commands.
-- [B] 8ball - answers yes/no questions
-- [B] avatar - gets the avatar of a user
-- [B] help - helps you
-- [B] ping - send how long it took to recieve the ping
-- cowsay - a cow says whatever you want it to
-- figlet - make ascii art using figlet fonts
-- neo - get stats for neocities users
-- yt - search youtube
-- face - random ascii face
-- stats - bot stats
-- role - selfroles (any role in the guild that starts with + is a selfrole and can be obtained by any user)
+- [B] 8ball - Answers yes/no questions
+- [B] help - Helps you
+- [B] ping - Send how long it took to recieve the ping
+- cowsay - A cow says whatever you want it to
+- figlet - Make ascii art using figlet fonts
+- neo - Get stats for neocities users
+- yt - Search youtube
+- face - Random ascii face
+- stats - Bot stats
+- role - Selfroles (any role in the guild that starts with + is a selfrole and can be obtained by any user)
+- user - User information, replaces [B] avatar
+- purge - Delete up to 100 messages in one fell swoop. Requires the Manage Messages permission.
 
 ## adding to your server
 
-[👉 👉 👉 here](https://discordapp.com/oauth2/authorize?client_id=441444584988606464&scope=bot&permissions=8)
+[👉 👉 👉 here](https://discordapp.com/oauth2/authorize?client_id=441444584988606464&scope=bot&permissions=268561408)
 
 ## if the bot falls asleep
 While I'm trying to keep it up as much as possible, the trick used doesn't seem to be working all the time. In the event, go to [https://croissant-bot.glitch.me](https://croissant-bot.glitch.me). If you're using your remix replace croissant-bot with your project name.

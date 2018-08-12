@@ -1,3 +1,5 @@
+const Discord = require("discord.js");
+
 exports.run = (client, message, args) => {
     if (args.length < 1) {
       message.channel.send("How can I answer your question if you never asked it?");
