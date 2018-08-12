@@ -28,6 +28,7 @@ fs.readdir('./', (err, files) => {
   .addField(prefix + 'face', 'Cool ASCII faces.', true)
   .addField(prefix + 'role [list/remove (role)/get (role)]', 'Obtain selfroles. (start with **+**)', true)
   .addField(prefix + 'purge [1-100]', 'Delete multiple messages in one fell swoop.', true)
+  .addField(prefix + 'emote [url (url)/de (name)]', 'Add custom emoji to the server.', true)
   
   message.channel.send(embed).catch(console.error);
 }
