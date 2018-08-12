@@ -21,6 +21,7 @@ fs.readdir('./', (err, files) => {
   .addField(prefix + 'ping', 'Pong?', true)
   .addField(prefix + 'stats', 'Bot statistics.', true)
   .addField(prefix + 'user [@user]', 'Get user information.', true)
+  .addField(prefix + 'verbosity', 'See who has been participating lately.', true)
   .addField(prefix + '8ball [question]', 'Ask a question to math.random!', true)
   .addField(prefix + 'neo [sitename]', 'Get Neocities site stats.', true)
   .addField(prefix + 'figlet [font] [text]', 'Generate ASCII art text with Figlet. Use ' + prefix + 'figlet fonts for a list.', true)

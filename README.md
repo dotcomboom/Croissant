@@ -15,7 +15,8 @@ Items marked with a [B] are original or modified Boopie commands.
 - stats - Bot stats
 - role - Selfroles (any role in the guild that starts with + is a selfrole and can be obtained by any user)
 - user - User information, replaces [B] avatar
-- purge - Delete up to 100 messages in one fell swoop. Requires the Manage Messages permission.
+- verbosity - See who has been participating lately
+- purge - Delete up to 100 messages in one fell swoop, requires the Manage Messages permission
 - emote - Add custom emoji with either a URL or from DiscordEmoji.com
 
 ## Adding to your server
