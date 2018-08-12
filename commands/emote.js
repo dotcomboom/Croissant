@@ -9,7 +9,7 @@ exports.run = (client, message, args) => {
           if (args[1]) {
             url = args[1];
             if (args[2]) { name = args[2]; } else {
-              name = args[1].substring(url.lastIndexOf('/')+1).split('.')[0];
+              name = args[1].substring(url.lastIndexOf('/')+1).split('.')[0].replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
             }
           } else {
             message.channel.send(':interrobang:  **400: Which URL?**').catch(console.error); 
@@ -17,7 +17,7 @@ exports.run = (client, message, args) => {
       } else if (args[0] == 'de') {
           if (args[1]) {
             url = 'https://discordemoji.com/assets/emoji/' + args[1] + '.png';
-            name = args[1];
+            name = args[1].replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
           } else {
             message.channel.send(':interrobang: **400: What emote do you want me to look for?**').catch(console.error); 
           }
