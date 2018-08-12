@@ -10,7 +10,7 @@ app.get("/", (request, response) => {
   response.sendStatus(200);
 });
 app.listen(process.env.PORT);
-console.log('http://' + process.env.projectname +  '.glitch.me/')
+// console.log('http://' + process.env.projectname +  '.glitch.me/')
 setInterval(() => {
   http.get('http://' + process.env.projectname +  '.glitch.me/');
 }, 140000);
