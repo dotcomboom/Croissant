@@ -49,9 +49,9 @@ exports.run = (client, message, args) => {
           args[1] = '+' + args[1];
         }
         message.member.roles.forEach(function(role){
-          if (role.name == args[1]) {
+          if (role.name.toLowerCase() == args[1].toLowerCase()) {
             message.member.removeRole(role);
-            message.channel.send(':fire: **Your selfrole ' + args[1] + ' has been removed.**').catch(console.error);
+            message.channel.send(':fire: **Your selfrole ' + role.name + ' has been removed.**').catch(console.error);
           }
         });
       }
