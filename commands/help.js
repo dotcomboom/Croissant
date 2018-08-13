@@ -28,7 +28,7 @@ fs.readdir('./', (err, files) => {
   .addField(':map: External', process.env.prefix + 'neo, ' + 
                               process.env.prefix + 'yt', true)
   .addField(':name_badge: Selfroles', process.env.prefix + 'role', true)
-  .addField(':hammer: Management', process.env.prefix + 'purge, ' + 
+  .addField(':tools: Management', process.env.prefix + 'purge, ' + 
                                    process.env.prefix + 'emote', true)
   
   message.channel.send(embed).catch(console.error);

@@ -1,23 +1,34 @@
-# croissant
+# Croissant
 
 Croissant is a multifunctional Discord bot based on boopie.
 
-## commands
+## Commands
 Items marked with a [B] are original or modified Boopie commands.
-- [B] 8ball - Answers yes/no questions
+
+**🤘 Meta**
 - [B] help - Helps you
-- cowsay - A cow says whatever you want it to
-- figlet - Make ascii art using figlet fonts
-- neo - Get stats for neocities users
-- yt - Search youtube
 - stats - Bot stats
-- role - Selfroles (any role in the guild that starts with + is a selfrole and can be obtained by any user)
+
+**ℹ️ Information**
 - user - User information, replaces [B] avatar
 - guild - Guild information
-- verbosity - See who has been participating lately
-These require special permissions:
+- verbosity - See who has been participating in the channel lately
+
+**🎉 Fun**
+- [B] 8ball - Answers yes/no questions
+- cowsay - A cow says whatever you want it to
+- figlet - Make ascii art using figlet fonts
+
+**🗺️ External**
+- neo - Get stats for neocities users
+- yt - Search youtube
+
+**📛 Selfroles**
+- role - Selfroles (any role in the guild that starts with + is a selfrole and can be obtained by any user)
+
+**🛠️ Management**
 - purge - Delete up to 100 messages in one fell swoop, requires the Manage Messages permission
-- emote - Add custom emoji with either a URL or from DiscordEmoji.com, requires the Manage Emoji permission
+- emote - Add custom emoji with either an upload, URL, or one from DiscordEmoji.com, requires the Manage Emoji permission
 
 ## Adding to your server
 
@@ -26,16 +37,16 @@ These require special permissions:
 ## If the bot falls asleep
 While I'm trying to keep it up as much as possible, the trick used doesn't seem to be working all the time. In the event, go to [https://croissant-bot.glitch.me](https://croissant-bot.glitch.me). If you're using your remix replace croissant-bot with your project name.
 
-## env variables
+## .env variables
 
-TOKEN: your discord app token
+TOKEN: Your Discord app token
 
-prefix: your desired prefix. I use 'c!'
+prefix: Your desired prefix. I use 'c!'
 
-ownerID: your username. currently unused as far as I can tell.
+ownerID: Your username. Currently unused.
 
-game: what the bot is "playing". I use 'c!help' so people know the prefix right away.
+game: What the bot is "playing". I use 'c!help' so people know the prefix right away.
 
-projectname: the project name on glitch. this is important so the bot can stay awake.
+projectname: The project name on Glitch. This helps the bot poke itself every little while to attempt staying awake.
 
 ytkey: API key for the [YouTube Data API v3](https://console.developers.google.com/apis/library/youtube.googleapis.com/?q=youtube). (required for the yt command)
