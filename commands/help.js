@@ -15,8 +15,7 @@ fs.readdir('./', (err, files) => {
   
   let color = 4886754;
   let embed = new Discord.RichEmbed()
-  .setAuthor(client.user.username)
-  .setTitle("Commands")
+  .setTitle(client.user.username + " Commands")
   .setColor(color)
   .addField(':metal: Meta', process.env.prefix + 'help, ' + 
                             process.env.prefix + 'stats', true)
@@ -24,7 +23,8 @@ fs.readdir('./', (err, files) => {
                                                 process.env.prefix + 'guild, ' + 
                                                 process.env.prefix + 'verbosity', true)
   .addField(':tada: Fun', process.env.prefix + '8ball, ' + 
-                          process.env.prefix + 'figlet', true)
+                          process.env.prefix + 'figlet' + 
+                          process.env.prefix + 'cowsay', true)
   .addField(':map: External', process.env.prefix + 'neo, ' + 
                               process.env.prefix + 'yt', true)
   .addField(':name_badge: Selfroles', process.env.prefix + 'role', true)
