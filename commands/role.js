@@ -13,16 +13,26 @@ exports.run = (client, message, args) => {
   
     if (args[0] == 'get') {
       
+      if (args[1] == 'all') {
+        selfroles.forEach(function(role){
+          if (role.name.startsWith('+')) {
+            message.member.addRole(role);
+          }
+        });
+        message.channel.send(':gift: **You now have all selfroles.**').catch(console.error);
+      } else {
+      
       if (args[1].startsWith('+')) {} else{
           args[1] = '+' + args[1];
         }
       
         selfroles.forEach(function(role){
-          if (role.name == args[1]) {
+          if (role.name.toLowerCase() == args[1].toLowerCase()) {
             message.member.addRole(role);
-            message.channel.send(':gift: **You now have the selfrole ' + args[1] + '.**').catch(console.error);
+            message.channel.send(':gift: **You now have the selfrole ' + role.name + '.**').catch(console.error);
           }
         });
+      }
       
     } else if (args[0] == 'remove') {
       
@@ -52,7 +62,7 @@ exports.run = (client, message, args) => {
       .setTitle("Selfroles")
       .setAuthor(message.author.username)
       .setColor(color)
-      .setFooter('Selfrole names start with the + symbol. To get or remove a selfrole, type ' + process.env.prefix + 'role get/remove (role).')
+      .setFooter('Selfrole names start with the + symbol. To get or remove a selfrole, type ' + process.env.prefix + 'role get/remove (role)/all.')
       selfroles.forEach(function(role){
         let status = ':white_large_square:';
         message.member.roles.forEach(function(snowflake, urole){

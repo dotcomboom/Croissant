@@ -23,7 +23,7 @@ fs.readdir('./', (err, files) => {
                                                 process.env.prefix + 'guild, ' + 
                                                 process.env.prefix + 'verbosity', true)
   .addField(':tada: Fun', process.env.prefix + '8ball, ' + 
-                          process.env.prefix + 'figlet' + 
+                          process.env.prefix + 'figlet, ' + 
                           process.env.prefix + 'cowsay', true)
   .addField(':map: External', process.env.prefix + 'neo, ' + 
                               process.env.prefix + 'yt', true)
