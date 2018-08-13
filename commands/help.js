@@ -17,19 +17,19 @@ fs.readdir('./', (err, files) => {
   let embed = new Discord.RichEmbed()
   .setTitle(client.user.username + " Commands")
   .setColor(color)
-  .addField(':metal: Meta', process.env.prefix + 'help, ' + 
-                            process.env.prefix + 'stats', true)
-  .addField(':information_source: Information', process.env.prefix + 'user, ' + 
-                                                process.env.prefix + 'guild, ' + 
-                                                process.env.prefix + 'verbosity', true)
-  .addField(':tada: Fun', process.env.prefix + '8ball, ' + 
-                          process.env.prefix + 'figlet, ' + 
-                          process.env.prefix + 'cowsay', true)
-  .addField(':map: External', process.env.prefix + 'neo, ' + 
-                              process.env.prefix + 'yt', true)
-  .addField(':name_badge: Selfroles', process.env.prefix + 'role', true)
-  .addField(':tools: Management', process.env.prefix + 'purge, ' + 
-                                   process.env.prefix + 'emote', true)
+  .addField(':metal: Meta', prefix + 'help, ' + 
+                            prefix + 'stats', true)
+  .addField(':information_source: Information', prefix + 'user, ' + 
+                                                prefix + 'guild, ' + 
+                                                prefix + 'verbosity', true)
+  .addField(':tada: Fun', prefix + '8ball, ' + 
+                          prefix + 'figlet, ' + 
+                          prefix + 'cowsay', true)
+  .addField(':map: External', prefix + 'neo, ' + 
+                              prefix + 'yt', true)
+  .addField(':name_badge: Selfroles', prefix + 'role', true)
+  .addField(':tools: Management', prefix + 'purge, ' + 
+                                   prefix + 'emote', true)
   
   message.channel.send(embed).catch(console.error);
 }
