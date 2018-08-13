@@ -6,18 +6,18 @@ Croissant is a multifunctional Discord bot based on boopie.
 Items marked with a [B] are original or modified Boopie commands.
 - [B] 8ball - Answers yes/no questions
 - [B] help - Helps you
-- [B] ping - Send how long it took to recieve the ping
 - cowsay - A cow says whatever you want it to
 - figlet - Make ascii art using figlet fonts
 - neo - Get stats for neocities users
 - yt - Search youtube
-- face - Random ascii face
 - stats - Bot stats
 - role - Selfroles (any role in the guild that starts with + is a selfrole and can be obtained by any user)
 - user - User information, replaces [B] avatar
+- guild - Guild information
 - verbosity - See who has been participating lately
+These require special permissions:
 - purge - Delete up to 100 messages in one fell swoop, requires the Manage Messages permission
-- emote - Add custom emoji with either a URL or from DiscordEmoji.com
+- emote - Add custom emoji with either a URL or from DiscordEmoji.com, requires the Manage Emoji permission
 
 ## Adding to your server
 

@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 exports.run = (client, message, args) => {
     const figlet = require('figlet');
-  
+    if (args[0]) {
   if (args[0] == 'fonts') {
       function chunkSubstr(str, size) {
         //https://stackoverflow.com/a/29202760
@@ -43,7 +43,7 @@ exports.run = (client, message, args) => {
     verticalLayout: 'default'
 }, function(err, data) {
     if (err) {
-        message.channel.send('Something went wrong.. the font might be missing').catch(console.error);
+        message.channel.send(':interrobang: **Something went wrong.. the font might be missing**').catch(console.error);
         console.dir(err);
         return;
     }
@@ -51,5 +51,7 @@ exports.run = (client, message, args) => {
 });
     
   }
-  
+    } else {
+      message.channel.send(':interrobang: **What do you want to say, and what font do you want to use? c!figlet (font) (text), or you can do c!figlet fonts to see all available fonts.**').catch(console.error);
+    }
 }

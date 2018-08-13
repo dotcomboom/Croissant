@@ -57,6 +57,8 @@ function updated (username) {
 
 
 exports.run = (client, message, args) => {
+  if (args[0]) {
+    
   let username = args[0];
   scrape(username).then((stats) => {
     let views = stats[0];
@@ -89,7 +91,9 @@ exports.run = (client, message, args) => {
           .addField(':birthday: Created', created, true)
       
       message.channel.send(embed).catch(console.error);
-      
     });
   });
+  } else {
+    message.channel.send(':interrobang: **What Neocities site do you want me to look up? ' + process.env.prefix + 'neo (site)**').catch(console.error);
+  }
 }

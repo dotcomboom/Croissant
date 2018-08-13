@@ -45,7 +45,7 @@ exports.run = (client, message, args) => {
             }
       
             if (url == '') {
-              message.channel.send(':interrobang: **400: What emote do you want me to add? A URL, upload, or the name of one from discordemoji.com. Or you can `c!emote search ______`. That works too.**').catch(console.error);  
+              message.channel.send(":interrobang: **What emoji do you want me to add? Do " + process.env.prefix + "emote and an attachment, URL, or the name of one from discordemoji.com. You can also do " + process.env.prefix + "emote search (query) to see what's there.**").catch(console.error);  
             }
       
       if (url == '') {} else {

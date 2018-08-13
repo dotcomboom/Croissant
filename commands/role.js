@@ -7,6 +7,10 @@ exports.run = (client, message, args) => {
       }
     });
   
+    if (args[0]) {} else {
+       args[0] = 'list'; 
+    }
+  
     if (args[0] == 'get') {
       
       if (args[1].startsWith('+')) {} else{
@@ -48,6 +52,7 @@ exports.run = (client, message, args) => {
       .setTitle("Selfroles")
       .setAuthor(message.author.username)
       .setColor(color)
+      .setFooter('Selfrole names start with the + symbol. To get or remove a selfrole, type ' + process.env.prefix + 'role get/remove (role).')
       selfroles.forEach(function(role){
         let status = ':white_large_square:';
         message.member.roles.forEach(function(snowflake, urole){
