@@ -15,21 +15,21 @@ fs.readdir('./', (err, files) => {
   
   let color = 4886754;
   let embed = new Discord.RichEmbed()
-  .setTitle("Commands")
+  .setTitle(client.user.username + " Commands")
   .setColor(color)
-  .addField(prefix + 'help', 'How do I work this thing?!?', true)
-  .addField(prefix + 'ping', 'Pong?', true)
-  .addField(prefix + 'stats', 'Bot statistics.', true)
-  .addField(prefix + 'user [@user]', 'Get user information.', true)
-  .addField(prefix + 'verbosity', 'See who has been participating lately.', true)
-  .addField(prefix + '8ball [question]', 'Ask a question to math.random!', true)
-  .addField(prefix + 'neo [sitename]', 'Get Neocities site stats.', true)
-  .addField(prefix + 'figlet [font] [text]', 'Generate ASCII art text with Figlet. Use ' + prefix + 'figlet fonts for a list.', true)
-  .addField(prefix + 'yt [query]', 'Search for YouTube videos.', true)
-  .addField(prefix + 'face', 'Cool ASCII faces.', true)
-  .addField(prefix + 'role [list/remove (role)/get (role)]', 'Obtain selfroles. (start with **+**)', true)
-  .addField(prefix + 'purge [1-100]', 'Delete multiple messages in one fell swoop.', true)
-  .addField(prefix + 'emote [(url/name)/search (q)]', 'Add custom emoji to the server.', true)
+  .addField(':metal: Meta', prefix + 'help, ' + 
+                            prefix + 'stats', true)
+  .addField(':information_source: Information', prefix + 'user, ' + 
+                                                prefix + 'guild, ' + 
+                                                prefix + 'verbosity', true)
+  .addField(':tada: Fun', prefix + '8ball, ' + 
+                          prefix + 'figlet, ' + 
+                          prefix + 'cowsay', true)
+  .addField(':map: External', prefix + 'neo, ' + 
+                              prefix + 'yt', true)
+  .addField(':name_badge: Selfroles', prefix + 'role', true)
+  .addField(':tools: Management', prefix + 'purge, ' + 
+                                   prefix + 'emote', true)
   
   message.channel.send(embed).catch(console.error);
 }

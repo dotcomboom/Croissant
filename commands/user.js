@@ -15,7 +15,11 @@ exports.run = (client, message, args) => {
     gm.roles.forEach(function(role){
       roles.push(role);
       if (role.name != '@everyone') {
-        roleNames.push(role.name);
+        if (role.name.startsWith('+')) {
+          roleNames.push('*' + role.name + '*');
+        } else {
+          roleNames.push(role.name);
+        }
       }
     });
     let verbosity = 0;
@@ -56,6 +60,9 @@ exports.run = (client, message, args) => {
         embed.addField(':loudspeaker: Verbosity in #' + message.channel.name, verbosity, true)
       }
       embed.addField(':crown: Roles', roleNames.join(', '), true)
+      if (message.mentions.members.size == 0) {
+       embed.footer = 'To view another user, use ' + process.env.prefix + 'user (@user).' 
+      }
       message.channel.send(embed).catch(console.error);
         
     })
