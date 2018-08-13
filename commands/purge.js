@@ -17,7 +17,7 @@ exports.run = (client, message, args) => {
         deleted += 1;
       });
       async function ok() {
-        let msg = await message.channel.send(':fire: **Purged ' + deleted + ' messages.**').catch(console.error);
+        let msg = await message.channel.send(':fire: **Purging ' + deleted + ' messages.**').catch(console.error);
         msg.delete(3000);
       }
       ok();
