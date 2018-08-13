@@ -32,30 +32,37 @@ exports.run = (client, message, args) => {
             });
       } else {
             url = 'https://discordemoji.com/assets/emoji/' + args[0] + '.png';
-            name = args[0].replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+            if (args[1]) { name = args[1]; } else {
+              name = url.substring(url.lastIndexOf('/')+1).split('.')[0].replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+            }
       }
+      }
+            if (message.attachments.first()) {
+                url = message.attachments.first().url;
+                if (args[0]) { name = args[0]; } else {
+                  name = url.substring(url.lastIndexOf('/')+1).split('.')[0].replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+                }
+            }
+      
+            if (url == '') {
+              message.channel.send(':interrobang: **400: What emote do you want me to add? A URL, upload, or the name of one from discordemoji.com. Or you can `c!emote search ______`. That works too.**').catch(console.error);  
+            }
+      
       if (url == '') {} else {
+        if (name.length > 32) {
+          name = name.substring(1, 32);
+        } else if (name.length < 2) {
+          name = name + name;
+        }
       request(url, function (error, response, body) {
             if (!error && response.statusCode == 200) {
-              message.guild.createEmoji(url, name);
-              let created = false;
-              message.guild.emojis.forEach(function(emoji){
-                if (emoji.name == name) {
-                   created = true; 
-                }
-              });
-              if (created) {
-                message.channel.send(':white_check_mark: ** :' + name + ': created.** ' + url);
-              } else {
-                message.channel.send(':interrobang: **Failed to create :' + name + ':! The name might be too long, or the image might be larger than 256 kb.** ' + url);
-              }
+              message.guild.createEmoji(url, name)
+  .then(emoji => {if (emoji) {message.channel.send(':white_check_mark: ** :' + name + ': created.** ' + url)}})
+  .catch(emoji => {if (emoji.id) {} else {message.channel.send(':interrobang: **Failed to create :' + name + ':! The image might be larger than 256 kb.**');}});
             } else {
               message.channel.send(`:interrobang:  **Recieved error code ${response.statusCode}.**`).catch(console.error); 
             }
           })
-      }
-      } else {
-            message.channel.send(':interrobang: **400: What emote do you want me to add? URL, or the name of one from discordemoji.com. Or you can `c!emote search _____`. That works too.**').catch(console.error);  
       }
     } else {
       message.channel.send(':no_entry: **403: You need the Manage Emoji permission to do this!**').catch(console.error);
