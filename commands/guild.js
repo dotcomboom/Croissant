@@ -16,7 +16,7 @@ exports.run = (client, message, args) => {
       }
     });
 
-    let color = '#31C119';
+    let color = message.guild.me.displayColor;
     let embed = new Discord.RichEmbed()
     .setTitle("Guild Information")
     .setColor(color)

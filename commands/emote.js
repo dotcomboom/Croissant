@@ -25,7 +25,7 @@ exports.run = (client, message, args) => {
                     .setDescription("You can try making your query a little more specific.")
                     message.channel.send(embed).catch(console.error);
                   } else {
-                    let color = '#31C119';
+                    let color = message.guild.me.displayColor;
                     let embed = new Discord.RichEmbed()
                     .setColor(color)
                     .setTitle("DiscordEmoji.com Results")
@@ -99,7 +99,7 @@ exports.run = (client, message, args) => {
               message.guild.createEmoji(url, name)
   .then(emoji => {if (emoji.id) {
     
-                  let color = '#31C119';
+                  let color = message.guild.me.displayColor;
                   let embed = new Discord.RichEmbed()
                   .setColor(color)
                   .setThumbnail(url)

@@ -25,7 +25,7 @@ exports.run = (client, message, args) => {
     var randomAnswer = answers[Math.floor(Math.random() * answers.length)];
   
     
-    let color = '#31C119';
+    let color = message.guild.me.displayColor;
     let embed = new Discord.RichEmbed()
     .setColor(color)
     .setTitle("The 8-Ball says...")

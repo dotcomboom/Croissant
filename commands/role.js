@@ -19,7 +19,7 @@ exports.run = (client, message, args) => {
             message.member.addRole(role);
           }
         });
-        let color = '#31C119';
+        let color = message.guild.me.displayColor;
         let embed = new Discord.RichEmbed()
         .setTitle(':gift: You now have all selfroles.')
         .setColor(color)
@@ -33,7 +33,7 @@ exports.run = (client, message, args) => {
         selfroles.forEach(function(role){
           if (role.name.toLowerCase() == args[1].toLowerCase()) {
             message.member.addRole(role);
-            let color = '#31C119';
+            let color = message.guild.me.displayColor;
             let embed = new Discord.RichEmbed()
             .setTitle(':gift: You now have the selfrole ' + role.name + '.')
             .setColor(color)
@@ -50,7 +50,7 @@ exports.run = (client, message, args) => {
             message.member.removeRole(role);
           }
         });
-        let color = '#31C119';
+        let color = message.guild.me.displayColor;
         let embed = new Discord.RichEmbed()
         .setTitle(':fire: Your selfroles have been removed.')
         .setColor(color)
@@ -72,7 +72,7 @@ exports.run = (client, message, args) => {
       }
                  
     } else if (args[0] == 'list') {
-      let color = '#31C119';
+      let color = message.guild.me.displayColor;
       let embed = new Discord.RichEmbed()
       .setTitle("Selfroles")
       .setAuthor(message.author.username)

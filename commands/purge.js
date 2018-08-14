@@ -32,7 +32,7 @@ exports.run = (client, message, args) => {
         }
       });
       async function ok() {
-        let color = '#31C119';
+        let color = message.guild.me.displayColor;
         let embed = new Discord.RichEmbed()
         .setTitle(':fire: Purging ' + deleted + ' messages.')
         .setColor(color)

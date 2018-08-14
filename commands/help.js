@@ -13,7 +13,7 @@ fs.readdir('./', (err, files) => {
   
   let prefix = process.env.prefix
   
-  let color = '#31C119';
+  let color = message.guild.me.displayColor;
   let embed = new Discord.RichEmbed()
   .setTitle(client.user.username + " Commands")
   .setColor(color)
