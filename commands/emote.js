@@ -17,7 +17,7 @@ exports.run = (client, message, args) => {
                   }
                 });
                 if (results.length > 0) {
-                  message.channel.send(':printer: **Your results:** ```' + results.join(', ') + '```*Add emojis with `c!emote [name]`.\nRemember, emoji names are cAsE sEnSiTiVe!*');
+                  message.channel.send(':printer: **Your DiscordEmoji.com results:** ```' + results.join(', ') + '```*Add emojis with `c!emote [name]`.\nRemember, emoji names are cAsE sEnSiTiVe!*');
                 } else {
                   message.channel.send(':interrobang: **Nothing turned up..**')
                 }
