@@ -15,6 +15,11 @@ exports.run = (client, message, args) => {
       message.channel.send(':movie_camera: ***' + results[0].title + '*** - *' + results[0].channelTitle + '*\n' + results[0].link).catch(console.error);
     });
     } else {
-      message.channel.send(':interrobang: **What video do you want to search for? c!yt (query)**').catch(console.error);
+      let color = '#C1192A';
+      let embed = new Discord.RichEmbed()
+      .setColor(color)
+      .setTitle("Hm?")
+      .setDescription("What video do you want to search for? " + process.env.prefix + "yt (query)")
+      message.channel.send(embed).catch(console.error);
     }
 }

@@ -32,7 +32,11 @@ exports.run = (client, message, args) => {
         }
       });
       async function ok() {
-        let msg = await message.channel.send(':fire: **Purging ' + deleted + ' messages.**').catch(console.error);
+        let color = message.guild.me.displayColor;
+        let embed = new Discord.RichEmbed()
+        .setTitle(':fire: Purging ' + deleted + ' messages.')
+        .setColor(color)
+        let msg = await message.channel.send(embed).catch(console.error);
         msg.delete(3000);
       }
       ok();
@@ -41,9 +45,19 @@ exports.run = (client, message, args) => {
     .catch(console.error);
       
       } else {
-        message.channel.send(":interrobang: **How many messages do you want to purge? If desired, also who's messages do you want to purge? " + process.env.prefix + "purge (1-100) [(@user)/bots]**").catch(console.error);
+        let color = '#C1192A';
+        let embed = new Discord.RichEmbed()
+        .setColor(color)
+        .setTitle("Hm?")
+        .setDescription("How many messages do you want to purge? And if desired, of whose messages do you want to purge? " + process.env.prefix + "purge (1-100) [(@user)/bots]")
+        message.channel.send(embed).catch(console.error);
       }
     } else {
-      message.channel.send(':no_entry: **403: You need the Manage Messages permission to do this!**').catch(console.error);
+      let color = '#C1192A';
+      let embed = new Discord.RichEmbed()
+      .setColor(color)
+      .setTitle("Insufficient permissions!")
+      .setDescription("You need the **Manage Messages** permission to purge messages.")
+      message.channel.send(embed).catch(console.error);
     }
 }
