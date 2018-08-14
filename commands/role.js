@@ -19,7 +19,11 @@ exports.run = (client, message, args) => {
             message.member.addRole(role);
           }
         });
-        message.channel.send(':gift: **You now have all selfroles.**').catch(console.error);
+        let color = '#31C119';
+        let embed = new Discord.RichEmbed()
+        .setTitle(':gift: You now have all selfroles.')
+        .setColor(color)
+        message.channel.send(embed).catch(console.error);
       } else {
       
       if (args[1].startsWith('+')) {} else{
@@ -29,7 +33,11 @@ exports.run = (client, message, args) => {
         selfroles.forEach(function(role){
           if (role.name.toLowerCase() == args[1].toLowerCase()) {
             message.member.addRole(role);
-            message.channel.send(':gift: **You now have the selfrole ' + role.name + '.**').catch(console.error);
+            let color = '#31C119';
+            let embed = new Discord.RichEmbed()
+            .setTitle(':gift: You now have the selfrole ' + role.name + '.')
+            .setColor(color)
+            message.channel.send(embed).catch(console.error);
           }
         });
       }
@@ -42,8 +50,11 @@ exports.run = (client, message, args) => {
             message.member.removeRole(role);
           }
         });
-        
-        message.channel.send(':fire: **Your selfroles have been removed.**').catch(console.error);
+        let color = '#31C119';
+        let embed = new Discord.RichEmbed()
+        .setTitle(':fire: Your selfroles have been removed.')
+        .setColor(color)
+        message.channel.send(embed).catch(console.error);
       } else {
         if (args[1].startsWith('+')) {} else{
           args[1] = '+' + args[1];
@@ -51,13 +62,17 @@ exports.run = (client, message, args) => {
         message.member.roles.forEach(function(role){
           if (role.name.toLowerCase() == args[1].toLowerCase()) {
             message.member.removeRole(role);
-            message.channel.send(':fire: **Your selfrole ' + role.name + ' has been removed.**').catch(console.error);
+            let color = '#31C119';
+            let embed = new Discord.RichEmbed()
+            .setTitle(':fire: Your selfrole ' + role.name + ' has been removed.')
+            .setColor(color)
+            message.channel.send(embed).catch(console.error);
           }
         });
       }
                  
     } else if (args[0] == 'list') {
-      let color = 4886754;
+      let color = '#31C119';
       let embed = new Discord.RichEmbed()
       .setTitle("Selfroles")
       .setAuthor(message.author.username)

@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
-    let color = 4886754;
+    let color = '#31C119';
     let embed = new Discord.RichEmbed()
     .setTitle(client.user.username + " Stats")
     .setColor(color)

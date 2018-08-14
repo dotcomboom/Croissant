@@ -12,14 +12,43 @@ exports.run = (client, message, args) => {
                 let api = JSON.parse(body);
                 let results = [];
                 api.forEach(function(item) {
-                  if ((item.slug.includes(args[1])) && (item.image.includes('png'))) { // item.image.includes('png') makes sure it's not an animated gif, but a PNG emoji
+                  if ((item.slug.includes(args[1])) && (item.image.includes('png')) && !(item.slug.includes(':'))) { // item.image.includes('png') makes sure it's not an animated gif, but a PNG emoji, also make sure it doesn't include : because that'd mess it all up for some reason
                     results.push(item.slug);
                   }
                 });
                 if (results.length > 0) {
-                  message.channel.send(':printer: **Your DiscordEmoji.com results:** ```' + results.join(', ') + '```*Add emojis with `c!emote [name]`.\nRemember, emoji names are cAsE sEnSiTiVe!*');
+                  if (results.join(', ').length > 2048) {
+                    let color = '#C1192A';
+                    let embed = new Discord.RichEmbed()
+                    .setColor(color)
+                    .setTitle("Too many results!")
+                    .setDescription("You can try making your query a little more specific.")
+                    message.channel.send(embed).catch(console.error);
+                  } else {
+                    let color = '#31C119';
+                    let embed = new Discord.RichEmbed()
+                    .setColor(color)
+                    .setTitle("DiscordEmoji.com Results")
+                    .setDescription('`' + results.join(', ') + '`')
+                    .setFooter('Add emojis with c!emote [name]. Remember, emoji names are cAsE sEnSiTiVe!')
+                    message.channel.send(embed).catch(console.error);
+                  }
                 } else {
-                  message.channel.send(':interrobang: **Nothing turned up..**')
+                  if (args[1]) {
+                    let color = '#C1192A';
+                    let embed = new Discord.RichEmbed()
+                    .setColor(color)
+                    .setTitle("Nothing turned up...")
+                    .setDescription("You can try generalizing your query a bit.")
+                    message.channel.send(embed).catch(console.error);
+                  } else {
+                    let color = '#C1192A';
+                    let embed = new Discord.RichEmbed()
+                    .setColor(color)
+                    .setTitle("Hm?")
+                    .setDescription("What do you want to search for? c!emote search (query)")
+                    message.channel.send(embed).catch(console.error);
+                  }
                 }
               }
             });
@@ -50,7 +79,12 @@ exports.run = (client, message, args) => {
       
             if (url == '') {
               if (args[0] == 'search') {} else {
-                message.channel.send(":interrobang: **What emoji do you want me to add? Do " + process.env.prefix + "emote and an attachment, URL, or the name of one from discordemoji.com. You can also do " + process.env.prefix + "emote search (query) to see what's there.**").catch(console.error);  
+                let color = '#C1192A';
+                let embed = new Discord.RichEmbed()
+                .setColor(color)
+                .setTitle("Hm?")
+                .setDescription("What emoji do you want me to add? Do " + process.env.prefix + "emote and an attachment, URL, or the name of one from discordemoji.com. You can also do " + process.env.prefix + "emote search (query) to see what's there.")
+                message.channel.send(embed).catch(console.error);  
               }
             }
       
@@ -63,15 +97,47 @@ exports.run = (client, message, args) => {
       request(url, function (error, response, body) {
             if (!error && response.statusCode == 200) {
               message.guild.createEmoji(url, name)
-  .then(emoji => {if (emoji.id) {message.channel.send(':white_check_mark: ** :' + name + ': created.** ' + url)}})
-  .catch(emoji => {if (emoji.id) {} else {message.channel.send(':interrobang: **Failed to create :' + name + ':! The image might be larger than 256 kb.**');}});
+  .then(emoji => {if (emoji.id) {
+    
+                  let color = '#31C119';
+                  let embed = new Discord.RichEmbed()
+                  .setColor(color)
+                  .setThumbnail(url)
+                  .setTitle(":" + name + ": created.")
+                  message.channel.send(embed).catch(console.error);
+  
+               }})
+  .catch(emoji => {if (emoji.id) {} else {
+    
+                let color = '#C1192A';
+                let embed = new Discord.RichEmbed()
+                .setColor(color)
+                .setThumbnail(url)
+                .setTitle("Failed to create :" + name + ':!')
+                .setDescription("The image might be larger than 256 kb.")
+                message.channel.send(embed);
+            
+              }});
             } else {
-              message.channel.send(`:interrobang:  **Recieved error code ${response.statusCode}.**`).catch(console.error); 
+                let color = '#C1192A';
+                let embed = new Discord.RichEmbed()
+                .setColor(color)
+                .setThumbnail(url)
+                .setTitle("Failed to create :" + name + ':!')
+                if (response) {
+                  embed.setDescription("Recieved error code " + response.statusCode + ".")
+                }
+                message.channel.send(embed);
             }
           })
       }
         }
     } else {
-      message.channel.send(':no_entry: **403: You need the Manage Emoji permission to do this!**').catch(console.error);
+      let color = '#C1192A';
+      let embed = new Discord.RichEmbed()
+      .setColor(color)
+      .setTitle("Insufficient permissions!")
+      .setDescription("You need the **Manage Emoji** permission to add emojis.")
+      message.channel.send(embed);
+      }
     }
-}

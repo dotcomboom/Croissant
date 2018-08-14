@@ -75,7 +75,7 @@ exports.run = (client, message, args) => {
       }
       let thumbnail = stats[7];
     
-      let color = 4886754;
+      let color = '#31C119';
       let embed = new Discord.RichEmbed()
           .setTitle("Neocities Stats")
           .setAuthor(username)
@@ -94,6 +94,11 @@ exports.run = (client, message, args) => {
     });
   });
   } else {
-    message.channel.send(':interrobang: **What Neocities site do you want me to look up? ' + process.env.prefix + 'neo (site)**').catch(console.error);
+    let color = '#C1192A';
+    let embed = new Discord.RichEmbed()
+    .setColor(color)
+    .setTitle("Hm?")
+    .setDescription("What Neocities site do you want to look up? " + process.env.prefix + "neo (site)")
+    message.channel.send(embed).catch(console.error);
   }
 }
