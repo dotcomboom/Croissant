@@ -26,6 +26,8 @@ exports.run = (client, message, args) => {
         message.channel.send(embed).catch(console.error);
       } else {
       
+        args[1] = args.join(' ').replace('get ', '');
+        
       if (args[1].startsWith('+')) {} else{
           args[1] = '+' + args[1];
         }
