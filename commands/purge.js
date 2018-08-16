@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 
 exports.run = (client, message, args) => {
     if (message.member.hasPermission(8192)) {
+      if (message.guild.me.hasPermission(8192)) {
       if (args[0]) {
         
       let todelete = args[0];
@@ -50,6 +51,14 @@ exports.run = (client, message, args) => {
         .setColor(color)
         .setTitle("Hm?")
         .setDescription("How many messages do you want to purge? And if desired, of whose messages do you want to purge? " + process.env.prefix + "purge (1-100) [(@user)/bots]")
+        message.channel.send(embed).catch(console.error);
+      }
+      } else {
+        let color = '#C1192A';
+        let embed = new Discord.RichEmbed()
+        .setColor(color)
+        .setTitle("Insufficient permissions!")
+        .setDescription(client.user.username + " needs the **Manage Messages** permission to purge messages.")
         message.channel.send(embed).catch(console.error);
       }
     } else {

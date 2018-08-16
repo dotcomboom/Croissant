@@ -12,7 +12,7 @@ exports.run = (client, message, args) => {
                 let api = JSON.parse(body);
                 let results = [];
                 api.forEach(function(item) {
-                  if ((item.slug.includes(args[1])) && (item.image.includes('png')) && !(item.slug.includes(':'))) { // item.image.includes('png') makes sure it's not an animated gif, but a PNG emoji, also make sure it doesn't include : because that'd mess it all up for some reason
+                  if ((item.slug.includes(args[1])) && (item.image.includes('png')) && !(item.slug.includes(':')) && !(item.slug == 'search')) { // item.image.includes('png') makes sure it's not an animated gif, but a PNG emoji, also make sure it doesn't include : because that'd mess it all up for some reason
                     results.push(item.slug);
                   }
                 });
@@ -109,13 +109,22 @@ exports.run = (client, message, args) => {
                }})
   .catch(emoji => {if (emoji.id) {} else {
     
-                let color = '#C1192A';
-                let embed = new Discord.RichEmbed()
-                .setColor(color)
-                .setThumbnail(url)
-                .setTitle("Failed to create :" + name + ':!')
-                .setDescription("The image might be larger than 256 kb.")
-                message.channel.send(embed);
+                if (message.guild.me.hasPermission(1073741824)) {
+                  let color = '#C1192A';
+                  let embed = new Discord.RichEmbed()
+                  .setColor(color)
+                  .setThumbnail(url)
+                  .setTitle("Failed to create :" + name + ':!')
+                  .setDescription("The image might be larger than 256 kb.")
+                  message.channel.send(embed);
+                } else {
+                  let color = '#C1192A';
+                  let embed = new Discord.RichEmbed()
+                  .setColor(color)
+                  .setTitle("Insufficient permissions!")
+                  .setDescription(client.user.username + " needs the **Manage Emoji** permission to add emojis.")
+                  message.channel.send(embed);
+                }
             
               }});
             } else {

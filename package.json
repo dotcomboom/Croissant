@@ -20,6 +20,7 @@
     "request": "^2.88.0",
     "cheerio": "^0.22.0",
     "htmlencode": "^0.0.4",
-    "dateformat": "^3.0.3"
+    "dateformat": "^3.0.3",
+    "gopher-lib": "^0.2.0"
   }
 }

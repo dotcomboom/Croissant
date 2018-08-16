@@ -26,6 +26,8 @@ exports.run = (client, message, args) => {
         message.channel.send(embed).catch(console.error);
       } else {
       
+        args[1] = args.join(' ').replace(args[0] + ' ', '', 1);
+        
       if (args[1].startsWith('+')) {} else{
           args[1] = '+' + args[1];
         }
@@ -56,6 +58,7 @@ exports.run = (client, message, args) => {
         .setColor(color)
         message.channel.send(embed).catch(console.error);
       } else {
+        args[1] = args.join(' ').replace(args[0] + ' ', '', 1);
         if (args[1].startsWith('+')) {} else{
           args[1] = '+' + args[1];
         }
