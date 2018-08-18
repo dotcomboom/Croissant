@@ -12,7 +12,7 @@ exports.run = (client, message, args) => {
                 let api = JSON.parse(body);
                 let results = [];
                 api.forEach(function(item) {
-                  if ((item.slug.includes(args[1])) && (item.image.includes('png')) && !(item.slug.includes(':')) && !(item.slug == 'search')) { // item.image.includes('png') makes sure it's not an animated gif, but a PNG emoji, also make sure it doesn't include : because that'd mess it all up for some reason
+                  if ((item.slug.includes(args[1])) && (item.image.includes('png')) && !(item.slug.includes(':')) && !(item.slug == 'search') && !(results.includes(item.slug))) { // item.image.includes('png') makes sure it's not an animated gif, but a PNG emoji, also make sure it doesn't include : because that'd mess it all up for some reason
                     results.push(item.slug);
                   }
                 });
