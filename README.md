@@ -43,8 +43,6 @@ TOKEN: Your Discord app token
 
 prefix: Your desired prefix. I use 'c!'
 
-ownerID: Your username. Currently unused.
-
 game: What the bot is "playing". I use 'c!help' so people know the prefix right away.
 
 ytkey: API key for the [YouTube Data API v3](https://console.developers.google.com/apis/library/youtube.googleapis.com/?q=youtube). (required for the yt command)
