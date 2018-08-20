@@ -29,11 +29,21 @@
     <!-- Project Helper -->
     <!-- ✂️ Copy this script to your project's view: -->
     <script src="https://button.glitch.me/button.js"></script>
-    <!-- ✂️ Copy this to wherever you want the button to show: -->
-    <div class="glitchButton" style="position: absolute; top: 5px; right: 5px; border-radius: 3px;"></div>
+      <div style="position: absolute; top: 10px; right: 10px;">
+        
+        <!-- ✂️ Copy this to wherever you want the button to show: -->
+        <div class="glitchButton" style="border-radius: 3px; z-index: 9999;"></div>
+        
+      </div>
 
-    <div class="stuff">
-
+    <div class="stuff" style="position: relative; top: 35px;">
+      
+      <a target="_blank" href="https://github.com/dotcomboom/Croissant"><img src="https://cdn.glitch.com/a02b3c73-9d92-4d19-88ba-b48e44e7a4b0%2Fgithub.png?1534732965446" alt="Github" /></a>
+      
+      <a target="_blank" href="https://discordbots.org/bot/441444584988606464" style="position: absolute; top: 10px; right: 10px;"><img src="https://cdn.glitch.com/a02b3c73-9d92-4d19-88ba-b48e44e7a4b0%2Fdbl.png?1534732965813" alt="Discord Bot List" /></a>
+      
+      
+      
     <h1 id="croissant">Croissant</h1>
     <p>Croissant is a multifunctional Discord bot based on boopie.</p>
     <h2 id="commands">Commands</h2>
@@ -71,14 +81,12 @@
     </ul>
     <h2 id="adding-to-your-server">Adding to your server</h2>
     <p><a href="https://discordapp.com/oauth2/authorize?client_id=441444584988606464&amp;scope=bot&amp;permissions=1342565456">👉 👉 👉 here</a></p>
-    <h2 id="if-the-bot-falls-asleep">If the bot falls asleep</h2>
-    <p>While I&#39;m trying to keep it up as much as possible, the trick used doesn&#39;t seem to be working all the time. In the event, go to <a href="https://croissant-bot.glitch.me">https://croissant-bot.glitch.me</a>. If you&#39;re using your remix replace croissant-bot with your project name.</p>
+    <h2 id="keeping-the-bot-awake">Keeping the bot awake</h2>
+    <p>I use Uptime Robot to keep the bot awake, checking <a href="https://croissant-bot.glitch.me">https://croissant-bot.glitch.me</a>. If this fails, you can go to that URL to bring it back up.</p>
     <h2 id="-env-variables">.env variables</h2>
     <p>TOKEN: Your Discord app token</p>
     <p>prefix: Your desired prefix. I use &#39;c!&#39;</p>
-    <p>ownerID: Your username. Currently unused.</p>
     <p>game: What the bot is &quot;playing&quot;. I use &#39;c!help&#39; so people know the prefix right away.</p>
-    <p>projectname: The project name on Glitch. This helps the bot poke itself every little while to attempt staying awake.</p>
     <p>ytkey: API key for the <a href="https://console.developers.google.com/apis/library/youtube.googleapis.com/?q=youtube">YouTube Data API v3</a>. (required for the yt command)</p>
     </div>
   </body>

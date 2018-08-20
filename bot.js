@@ -8,11 +8,6 @@ const app = express();
 app.use(express.static('public'));
 
 app.listen(process.env.PORT);
-// console.log('http://' + process.env.projectname +  '.glitch.me/')
-setInterval(() => {
-  http.get('http://' + process.env.projectname +  '.glitch.me/');
-}, 140000);
-// was 280000
 
 const prefix = process.env.prefix; //Set our prefix
 
