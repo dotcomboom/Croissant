@@ -29,6 +29,7 @@ Items marked with a [B] are original or modified Boopie commands.
 **🛠️ Management**
 - purge - Delete up to 100 messages in one fell swoop, requires the Manage Messages permission
 - emote - Add custom emoji with either an upload, URL, or one from DiscordEmoji.com, requires the Manage Emoji permission
+- nicks - Give everyone in the server one nickname for the lols, clear everyone's nicknames or add suffixes and prefixes
 
 ## Adding to your server
 
