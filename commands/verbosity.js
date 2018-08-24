@@ -2,8 +2,12 @@ const Discord = require("discord.js");
 exports.run = (client, message, args) => {
     let color = message.guild.me.displayColor;
     let embed = new Discord.RichEmbed()
-    .setTitle(":loudspeaker: Verbosity in #" + message.channel.name)
-    .setColor(color)
+    .setColor(color);
+    if (args[0] == 'bots') {
+      embed.setTitle(":loudspeaker: Bot Verbosity in #" + message.channel.name)
+    } else {
+      embed.setTitle(":loudspeaker: Verbosity in #" + message.channel.name)
+    }
     message.channel.fetchMessages({ })
     .then(messages => {
       
@@ -12,11 +16,22 @@ exports.run = (client, message, args) => {
       let people = [];
       let unique = [];
       messages.forEach(function(message){
-        if (message.author.bot) {} else {
-          if (message.content.startsWith(process.env.prefix)) {} else {
-            people.push(message.member.displayName);
-            if (unique.includes(message.member.displayName)) {} else {
-                unique.push(message.member.displayName);
+        if (args[0] == 'bots') {
+          if (!message.author.bot) {} else {
+            if (message.content.startsWith(process.env.prefix)) {} else {
+              people.push(message.member.displayName);
+              if (unique.includes(message.member.displayName)) {} else {
+                  unique.push(message.member.displayName);
+              }
+            }
+          }
+        } else {
+          if (message.author.bot) {} else {
+            if (message.content.startsWith(process.env.prefix)) {} else {
+              people.push(message.member.displayName);
+              if (unique.includes(message.member.displayName)) {} else {
+                  unique.push(message.member.displayName);
+              }
             }
           }
         }
@@ -40,6 +55,9 @@ exports.run = (client, message, args) => {
         } else {
           embed.setDescription('The last ' + people.length + ' messages');  
         }
+      }
+      if (args[0] == 'bots') {} else {
+        embed.setFooter('For bot verbosity, use ' + process.env.prefix + 'verbosity bots.');
       }
       message.channel.send(embed).catch(console.error);
     }).catch(console.error)

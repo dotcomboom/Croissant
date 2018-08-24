@@ -28,15 +28,29 @@ exports.run = (client, message, args) => {
       
       let msgsbyuser = 0;
       let msgamount = messages.size;
-      messages.forEach(function(message){
-        if ((message.author.bot) || (message.content.startsWith(process.env.prefix)) || (message.content.length < 2)) {
-          msgamount = msgamount - 1;
-        } else {
-          if (message.author.tag == u.tag) {
-            msgsbyuser += 1;
+      
+      if (u.bot) {
+        messages.forEach(function(message){
+          if (!message.author.bot) {
+            msgamount = msgamount - 1;
+          } else {
+            if (message.author.tag == u.tag) {
+              msgsbyuser += 1;
+            }
           }
-        }
-      });
+        });
+      } else {
+        messages.forEach(function(message){
+          if ((message.author.bot) || (message.content.startsWith(process.env.prefix)) || (message.content.length < 2)) {
+            msgamount = msgamount - 1;
+          } else {
+            if (message.author.tag == u.tag) {
+              msgsbyuser += 1;
+            }
+          }
+        });
+      }
+      
       if (msgamount > 0) {
         verbosity = msgsbyuser + '/' + msgamount + ' (' + (Math.round((msgsbyuser / msgamount) * 100)) + '%)';
       } else {
@@ -56,7 +70,9 @@ exports.run = (client, message, args) => {
       embed.addField(':paperclip: ID', u.id, true)
       embed.addField(':birthday: Joined Discord', dateformat(u.createdAt, "dddd, mmmm dS, yyyy, h:MM:ss TT"), true)
       embed.addField(':crossed_swords: Joined ' + message.guild.name, dateformat(gm.joinedAt, "dddd, mmmm dS, yyyy, h:MM:ss TT"), true);
-      if (u.bot == false) {
+      if (u.bot) {
+        embed.addField(':loudspeaker: Bot Verbosity in #' + message.channel.name, verbosity, true)
+      } else {
         embed.addField(':loudspeaker: Verbosity in #' + message.channel.name, verbosity, true)
       }
       embed.addField(':crown: Roles', roleNames.join(', '), true)
