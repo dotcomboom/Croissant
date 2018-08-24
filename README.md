@@ -22,6 +22,7 @@ Items marked with a [B] are original or modified Boopie commands.
 **🗺️ External**
 - neo - Get stats for neocities users
 - yt - Search youtube
+- gopher - Access resources from gopherspace
 
 **📛 Selfroles**
 - role - Selfroles (any role in the guild that starts with + is a selfrole and can be obtained by any user)
