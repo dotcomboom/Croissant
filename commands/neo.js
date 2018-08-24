@@ -53,8 +53,8 @@ function updated (username) {
       
       resolve(date) 
     })
-  })};
-
+  })
+};
 
 exports.run = (client, message, args) => {
   if (args[0]) {
@@ -74,7 +74,33 @@ exports.run = (client, message, args) => {
          quote = ''
       }
       let thumbnail = stats[7];
+      console.log(thumbnail);
     
+      let badges = [];
+      
+      if (updated.indexOf(((new Date()).getFullYear())) == -1) {
+          badges.push(':wine_glass: Aged');
+      } else {
+          badges.push(':kiwi: Ripe');
+      }
+      
+      if (updates.replace(',', '') > 500) {
+          badges.push(':hammer: Frequent Updater');
+      }
+      
+      if (tips > 1) {
+          badges.push(':money_with_wings: Profitable');
+      }
+      
+      let influential = ['kyledrake', 'victoria']
+      if (influential.includes(username)) {
+          badges.push(':trophy: Influential');
+      }
+      
+      if (badges.length < 1) {
+          badges.push('None..');
+      }
+      
       let color = message.guild.me.displayColor;
       let embed = new Discord.RichEmbed()
           .setTitle("Neocities Stats")
@@ -88,10 +114,9 @@ exports.run = (client, message, args) => {
           .addField(':hammer: Updates', updates, true)
           .addField(':money_with_wings: Tips', tips, true)
           .addField(':runner: Updated', updated, true)
-          .addField(':birthday: Created', created, true)
-      
-      message.channel.send(embed).catch(console.error);
-    });
+          .addField(':medal: Badges', badges.join('\n'), true)
+          message.channel.send(embed).catch(console.error);
+      });
   });
   } else {
     let color = '#C1192A';
