@@ -26,7 +26,7 @@ fs.readdir('./', (err, files) => {
                           prefix + 'figlet, ' + 
                           prefix + 'cowsay', true)
   .addField(':map: External', prefix + 'neo, ' + 
-                              prefix + 'yt' + 
+                              prefix + 'yt, ' + 
                               prefix + 'gopher', true)
   .addField(':name_badge: Selfroles', prefix + 'role', true)
   .addField(':tools: Management', prefix + 'purge, ' + 
