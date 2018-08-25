@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
+    // https://bytenota.com/javascript-replace-last-occurrence-of-a-string/
     function replaceLast(find, replace, string) {
       var lastIndex = string.lastIndexOf(find);
       
