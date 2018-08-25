@@ -1,5 +1,18 @@
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
+    function replaceLast(find, replace, string) {
+      var lastIndex = string.lastIndexOf(find);
+      
+      if (lastIndex === -1) {
+          return string;
+      }
+      
+      var beginString = string.substring(0, lastIndex);
+      var endString = string.substring(lastIndex + find.length);
+      
+      return beginString + replace + endString;
+    }
+  
     // https://stackoverflow.com/a/49921759
     let totalSeconds = (client.uptime / 1000);
     let hours = Math.floor(totalSeconds / 3600);
@@ -7,14 +20,34 @@ exports.run = (client, message, args) => {
     let minutes = Math.floor(totalSeconds / 60);
     let seconds = totalSeconds % 60;
     seconds = Math.round(seconds)
-    let uptime = '0 seconds';
+  
+    let uptimelist = [];
+  
     if (hours > 0) {
-      uptime = `${hours} hours, ${minutes} minutes and ${seconds} seconds`;
-    } else if (minutes > 0) {
-      uptime = `${minutes} minutes and ${seconds} seconds`;
-    } else {
-      uptime = `${seconds} seconds`;
+       if (hours > 1) {
+         uptimelist.push(hours + ' hours')
+       } else {
+         uptimelist.push(hours + ' hour')
+       }
     }
+  
+    if (minutes > 0) {
+       if (minutes > 1) {
+         uptimelist.push(minutes + ' minutes')
+       } else {
+         uptimelist.push(minutes + ' minute')
+       }
+    }
+  
+    if (seconds > 0) {
+       if (seconds > 1) {
+         uptimelist.push(seconds + ' seconds')
+       } else {
+         uptimelist.push(seconds + ' second')
+       }
+    }
+  
+    let uptime = replaceLast(', ', ', and ', uptimelist.join(', '))
   
     let color = message.guild.me.displayColor;
     let embed = new Discord.RichEmbed()

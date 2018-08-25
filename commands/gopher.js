@@ -42,6 +42,7 @@ exports.run = (client, message, args) => {
           let resources = [];
           
           reply['directory'].forEach(function(item) {
+            item.name = item.name.replace('`', `'`)
             if (item.type == 'i') {
               if (item.name.length > 1) {
                 resources.push(':arrow_forward: :information_source: `' + item.name + '`');
