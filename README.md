@@ -18,6 +18,7 @@ Items marked with a [B] are original or modified Boopie commands.
 - [B] 8ball - Answers yes/no questions
 - cowsay - A cow says whatever you want it to
 - figlet - Make ascii art using figlet fonts
+- swipe - Now you see it, now you don't.
 
 **🗺️ External**
 - neo - Get stats for neocities users

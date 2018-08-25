@@ -24,7 +24,8 @@ fs.readdir('./', (err, files) => {
                                                 prefix + 'verbosity', true)
   .addField(':tada: Fun', prefix + '8ball, ' + 
                           prefix + 'figlet, ' + 
-                          prefix + 'cowsay', true)
+                          prefix + 'cowsay' + 
+                          prefix + 'swipe', true)
   .addField(':map: External', prefix + 'neo, ' + 
                               prefix + 'yt, ' + 
                               prefix + 'gopher', true)
