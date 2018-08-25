@@ -15,6 +15,23 @@ exports.run = (client, message, args) => {
         }
       }
     });
+    let online = 0;
+    let bots = 0;
+    g.members.forEach(function(member){
+      if (!(member.user.presence.status == 'offline')) {
+        online += 1;
+      }
+      if (member.user.bot) {
+        bots += 1;
+      }
+    });
+  
+    if (bots == 1) {
+      bots = bots + ' bot'
+    } else {
+      bots = bots + ' bots'
+    }
+      
 
     let color = message.guild.me.displayColor;
     let embed = new Discord.RichEmbed()
@@ -27,8 +44,8 @@ exports.run = (client, message, args) => {
     .addField(':birthday: Created', dateformat(g.createdAt, "dddd, mmmm dS, yyyy, h:MM:ss TT"), true)
     .addField(':crossed_swords: Added ' + client.user.username, dateformat(g.joinedAt, "dddd, mmmm dS, yyyy, h:MM:ss TT"), true)
     .addField(':map: Region', g.region, true)
-    .addField(':dolphin: Members', g.memberCount, true)
-    .addField(':crown: Roles', roleNames.join(', '), true)
+    .addField(':dolphin: Members', g.memberCount + ' (' + online + ' online, ' + bots + ')', true)
+    .addField(':crown: Roles', roleNames.sort().join(', '), true)
     if (g.features.length > 0) {
       embed.addField(':star: Features', g.features.join(', '), true)
     }
