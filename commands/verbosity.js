@@ -12,17 +12,14 @@ exports.run = (client, message, args) => {
     .then(messages => {
       
       let msgsbyuser = 0;
-      let msgamount = messages.size;
       let people = [];
       let unique = [];
       messages.forEach(function(message){
         if (args[0] == 'bots') {
           if (!message.author.bot) {} else {
-            if (message.content.startsWith(process.env.prefix)) {} else {
-              people.push(message.member.displayName);
-              if (unique.includes(message.member.displayName)) {} else {
-                  unique.push(message.member.displayName);
-              }
+            people.push(message.member.displayName);
+            if (unique.includes(message.member.displayName)) {} else {
+                unique.push(message.member.displayName);
             }
           }
         } else {
