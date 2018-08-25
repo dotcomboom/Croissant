@@ -24,7 +24,7 @@ exports.run = (client, message, args) => {
       	console.error(err);
       } else {
         if (reply.text) {
-          message.react("📧").then(function () {
+          message.react("✅").then(function () {
             message.react("📰").then().catch(console.error);
           }).catch(console.error);
           message.channel.send('**:newspaper: Gopher resource: `' + args[0] + '`**').then().catch(console.error);
@@ -33,7 +33,7 @@ exports.run = (client, message, args) => {
             message.channel.send('```' + chunk + '```').then().catch(console.error);
           });
         } else {
-          message.react("📧").then(function () {
+          message.react("✅").then(function () {
             message.react("📁").then(function () {}).catch(console.error);
           }).catch(console.error);
           
