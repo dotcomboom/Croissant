@@ -19,6 +19,7 @@ Items marked with a [B] are original or modified Boopie commands.
 - cowsay - A cow says whatever you want it to
 - figlet - Make ascii art using figlet fonts
 - swipe - Now you see it, now you don't.
+- engrish - Google Translate parties from the comfort of Discord.
 
 **🗺️ External**
 - neo - Get stats for neocities users

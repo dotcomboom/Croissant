@@ -21,6 +21,7 @@
     "cheerio": "^0.22.0",
     "htmlencode": "^0.0.4",
     "dateformat": "^3.0.3",
-    "gopher-lib": "^0.2.0"
+    "gopher-lib": "^0.2.0",
+    "google-translate-api": "^2.3.0"
   }
 }
