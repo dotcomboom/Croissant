@@ -25,7 +25,8 @@ fs.readdir('./', (err, files) => {
   .addField(':tada: Fun', prefix + '8ball, ' + 
                           prefix + 'figlet, ' + 
                           prefix + 'cowsay, ' + 
-                          prefix + 'swipe', true)
+                          prefix + 'swipe, ' + 
+                          prefix + 'engrish', true)
   .addField(':map: External', prefix + 'neo, ' + 
                               prefix + 'yt, ' + 
                               prefix + 'gopher', true)
