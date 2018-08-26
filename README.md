@@ -2,6 +2,8 @@
 
 Croissant is a multifunctional Discord bot based on boopie.
 
+[![Discord Bots](https://discordbots.org/api/widget/441444584988606464.svg)](https://discordbots.org/bot/441444584988606464)
+
 ## Commands
 Items marked with a [B] are original or modified Boopie commands.
 
