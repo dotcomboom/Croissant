@@ -42,12 +42,10 @@ Items marked with a [B] are original or modified Boopie commands.
 ## Keeping the bot awake
 I use Uptime Robot to keep the bot awake, checking [https://croissant-bot.glitch.me](https://croissant-bot.glitch.me). If this fails, you can go to that URL to bring it back up.
 
-## .env variables
+## .env variables (for forkers)
 
-TOKEN: Your Discord app token
-
-prefix: Your desired prefix. I use 'c!'
-
-game: What the bot is "playing". I use 'c!help' so people know the prefix right away.
-
-ytkey: API key for the [YouTube Data API v3](https://console.developers.google.com/apis/library/youtube.googleapis.com/?q=youtube). (required for the yt command)
+- TOKEN: Your Discord app token
+- prefix: Your desired prefix. I use 'c!'
+- game: What the bot is "playing". I use 'c!help' so people know the prefix right away.
+- ytkey: API key for the [YouTube Data API v3](https://console.developers.google.com/apis/library/youtube.googleapis.com/?q=youtube). (required for the yt command)
+- dbltoken: Token for Discord Bot List, for updating the server count.
