@@ -121,6 +121,7 @@ exports.run = (client, message, args) => {
                         .addField(':hammer: Updates', updates, true)
                         .addField(':money_with_wings: Tips', tips, true)
                         .addField(':runner: Updated', updated, true)
+                        .addField(':birthday: Created', created, true)
                         .addField(':medal: Badges', badges.join('\n'), true)
                     message.channel.send(embed).catch(console.error);
                 });

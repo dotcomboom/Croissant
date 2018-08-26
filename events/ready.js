@@ -6,10 +6,6 @@ exports.run = (client) => {
     const DBL = require("dblapi.js");
     const dbl = new DBL(process.env.dbltoken, client);
     
-    dbl.on('posted', () => {
-      console.log('Server count posted!');
-    })
-    
     dbl.postStats(client.guilds.size);
     setInterval(() => {
         dbl.postStats(client.guilds.size);
