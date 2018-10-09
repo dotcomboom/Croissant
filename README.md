@@ -39,10 +39,7 @@ Items marked with a [B] are original or modified Boopie commands.
 
 [👉 👉 👉 here](https://discordapp.com/oauth2/authorize?client_id=441444584988606464&scope=bot&permissions=1342565456)
 
-## Keeping the bot awake
-I use Uptime Robot to keep the bot awake, checking [https://croissant-bot.glitch.me](https://croissant-bot.glitch.me). If this fails, you can go to that URL to bring it back up.
-
-## .env variables
+## environment variables
 
 TOKEN: Your Discord app token
 
