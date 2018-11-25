@@ -75,7 +75,9 @@ exports.run = (client, message, args) => {
       } else {
         embed.addField(':loudspeaker: Verbosity in #' + message.channel.name, verbosity, true)
       }
-      embed.addField(':crown: Roles', roleNames.join(', '), true)
+      if (roleNames.length > 0) {
+        embed.addField(':crown: Roles', roleNames.join(', '), true)
+      }
       if (message.mentions.members.size == 0) {
        embed.footer = 'To view another user, use ' + process.env.prefix + 'user (@user).' 
       }
