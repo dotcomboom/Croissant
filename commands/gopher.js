@@ -27,17 +27,17 @@ exports.run = (client, message, args) => {
           message.react("✅").then(function () {
             message.react("📰").then().catch(console.error);
           }).catch(console.error);
-          message.channel.send('**:newspaper: Gopher resource: `' + args[0] + '`**').then().catch(console.error);
+          message.author.send('**:newspaper: Gopher resource: `' + args[0] + '`**').then().catch(console.error);
           let chunks = chunkSubstr(reply.text, 1900)
           chunks.forEach(function(chunk) {
-            message.channel.send('```' + chunk + '```').then().catch(console.error);
+            message.author.send('```' + chunk + '```').then().catch(console.error);
           });
         } else {
           message.react("✅").then(function () {
             message.react("📁").then(function () {}).catch(console.error);
           }).catch(console.error);
           
-          message.channel.send('**:file_folder: Gopher directory: `' + args[0] + '`**').then().catch(console.error);
+          message.author.send('**:file_folder: Gopher directory: `' + args[0] + '`**').then().catch(console.error);
           
           let resources = [];
           
@@ -66,11 +66,11 @@ exports.run = (client, message, args) => {
           
           resources.forEach(function(resource) {
             if (group.length > 1000) {
-              message.channel.send(group).then(group = '').catch(console.error);
+              message.author.send(group).then(group = '').catch(console.error);
             }
             group = group + '\n' + resource;
           });
-          message.channel.send(group + '\n*To navigate to another gopher url, use c!gopher [url].*\n*Only information (type i), directories (type 1), text files (type 0), and external links (type h) are supported.*').then(group = '').catch(console.error);
+          message.author.send(group + '\n*To navigate to another gopher url, use c!gopher [url].*\n*Only information (type i), directories (type 1), text files (type 0), and external links (type h) are supported.*').then(group = '').catch(console.error);
         }
       }
     });
