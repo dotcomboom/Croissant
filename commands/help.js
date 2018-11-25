@@ -10,10 +10,12 @@ fs.readdir('./', (err, files) => {
     list = list + file + '/n'
   });
 })
-  
+
   let prefix = process.env.prefix
-  
-  let color = message.guild.me.displayColor;
+  let color = "#ffa500"
+  if (message.guild !== null) {
+    color = message.guild.me.displayColor;
+  }
   let embed = new Discord.RichEmbed()
   .setTitle(client.user.username + " Commands")
   .setColor(color)

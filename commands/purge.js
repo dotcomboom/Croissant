@@ -32,7 +32,7 @@ exports.run = (client, message, args) => {
           }
         }
       });
-      async function ok() {
+      /*async function ok() {
         let color = message.guild.me.displayColor;
         let embed = new Discord.RichEmbed()
         .setTitle(':fire: Purging ' + deleted + ' messages.')
@@ -40,7 +40,7 @@ exports.run = (client, message, args) => {
         let msg = await message.channel.send(embed).catch(console.error);
         msg.delete(3000);
       }
-      ok();
+      ok();*/
       
     })
     .catch(console.error);

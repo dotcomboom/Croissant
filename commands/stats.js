@@ -50,7 +50,10 @@ exports.run = (client, message, args) => {
   
     let uptime = replaceLast(', ', ', and ', uptimelist.join(', '))
   
-    let color = message.guild.me.displayColor;
+    let color = "#ffa500"
+    if (message.guild !== null) {
+      color = message.guild.me.displayColor;
+    }
     let embed = new Discord.RichEmbed()
     .setTitle(client.user.username + " Stats")
     .setColor(color)

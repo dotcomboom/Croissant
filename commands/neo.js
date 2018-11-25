@@ -107,8 +107,10 @@ exports.run = (client, message, args) => {
                     if (badges.length < 1) {
                         badges.push('None..');
                     }
-
-                    let color = message.guild.me.displayColor;
+                    let color = "#ffa500"
+                    if (message.guild !== null) {
+                      color = message.guild.me.displayColor;
+                    }
                     let embed = new Discord.RichEmbed()
                         .setTitle("Neocities Stats")
                         .setAuthor(username)

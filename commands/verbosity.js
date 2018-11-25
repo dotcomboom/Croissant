@@ -1,6 +1,9 @@
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
-    let color = message.guild.me.displayColor;
+    let color = "#ffa500"
+    if (message.guild !== null) {
+      color = message.guild.me.displayColor;
+    }
     let embed = new Discord.RichEmbed()
     .setColor(color);
     if (args[0] == 'bots') {

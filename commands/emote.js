@@ -25,7 +25,10 @@ exports.run = (client, message, args) => {
                     .setDescription("You can try making your query a little more specific.")
                     message.channel.send(embed).catch(console.error);
                   } else {
-                    let color = message.guild.me.displayColor;
+                    let color = "#ffa500"
+                    if (message.guild !== null) {
+                      color = message.guild.me.displayColor;
+                    }
                     let embed = new Discord.RichEmbed()
                     .setColor(color)
                     .setTitle("DiscordEmoji.com Results")

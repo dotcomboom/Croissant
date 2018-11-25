@@ -15,7 +15,10 @@ exports.run = (client, message, args) => {
           translate(engrish, {to: 'english'}).then(res => {
             engrish = res.text;
             
-            let color = message.guild.me.displayColor;
+            let color = "#ffa500"
+            if (message.guild !== null) {
+              color = message.guild.me.displayColor;
+            }
             let embed = new Discord.RichEmbed()
             .setAuthor(message.author.username)
             .setTitle("Engrish")

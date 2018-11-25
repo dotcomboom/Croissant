@@ -32,8 +32,10 @@ exports.run = (client, message, args) => {
       bots = bots + ' bots'
     }
       
-
-    let color = message.guild.me.displayColor;
+    let color = "#ffa500"
+    if (message.guild !== null) {
+      color = message.guild.me.displayColor;
+    }
     let embed = new Discord.RichEmbed()
     .setTitle("Guild Information")
     .setColor(color)
