@@ -1,4 +1,6 @@
 const Discord = require("discord.js");
+const publicIp = require("public-ip");
+
 exports.run = (client, message, args) => {
     // https://bytenota.com/javascript-replace-last-occurrence-of-a-string/
     function replaceLast(find, replace, string) {
@@ -61,5 +63,8 @@ exports.run = (client, message, args) => {
     .addField(':satellite: Channels', client.channels.size, true)
     .addField(':telescope: Users', client.users.size, true)
     .addField(':clock10: Uptime', uptime, true)
-    message.channel.send(embed).catch(console.error);
+    publicIp.v4().then(ip => {
+      embed.addField(':mouse_three_button: IP Address', ip, true)
+        message.channel.send(embed).catch(console.error);
+    });
 }
