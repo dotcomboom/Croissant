@@ -48,3 +48,7 @@ prefix: Your desired prefix. I use 'c!'
 game: What the bot is "playing". I use 'c!help' so people know the prefix right away.
 
 ytkey: API key for the [YouTube Data API v3](https://console.developers.google.com/apis/library/youtube.googleapis.com/?q=youtube). (required for the yt command)
+
+tkey: API key for [Yandex Translate](https://translate.yandex.com/developers/keys). (required for the engrish command)</p>
+
+ownerID: ID of the owner of the bot. (required for the abort command, which shuts down the bot)

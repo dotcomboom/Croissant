@@ -4,8 +4,14 @@ const request = require("request");
 exports.run = (client, message, args) => {
       let searched = false;
       if (args[0] == 'search') {
+        searched = true;
+      }
+      if (args[0] == 'search') {
            searched = true;
            request('https://discordemoji.com/api', function (error, response, body) {
+              if (response.statusCode == 404) {
+                error = true;
+              }
               if (error) {
                  message.channel.send(':interrobang: **Failed to contact DiscordEmoji API!**');
               } else {
@@ -57,7 +63,7 @@ exports.run = (client, message, args) => {
             });
       } 
     if (message.member.hasPermission(1073741824)) {
-        if (!searched) {
+        if (searched == false) {
       let url = '';
       let name = '';
       if (args[0]) {
@@ -121,12 +127,14 @@ exports.run = (client, message, args) => {
                   .setDescription("The image might be larger than 256 kb.")
                   message.channel.send(embed);
                 } else {
-                  let color = '#C1192A';
-                  let embed = new Discord.RichEmbed()
-                  .setColor(color)
-                  .setTitle("Insufficient permissions!")
-                  .setDescription(client.user.username + " needs the **Manage Emoji** permission to add emojis.")
-                  message.channel.send(embed);
+                  if (searched == false) {
+                    let color = '#C1192A';
+                    let embed = new Discord.RichEmbed()
+                    .setColor(color)
+                    .setTitle("Insufficient permissions!")
+                    .setDescription(client.user.username + " needs the **Manage Emoji** permission to add emojis.")
+                    message.channel.send(embed);
+                  }
                 }
             
               }});

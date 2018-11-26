@@ -23,6 +23,7 @@
     "dateformat": "^3.0.3",
     "gopher-lib": "^0.2.0",
     "google-translate-api": "^2.3.0",
-    "public-ip": "2.4.0"
+    "public-ip": "2.4.0",
+    "translate": "1.0.3"
   }
 }

@@ -63,8 +63,12 @@ exports.run = (client, message, args) => {
     .addField(':satellite: Channels', client.channels.size, true)
     .addField(':telescope: Users', client.users.size, true)
     .addField(':clock10: Uptime', uptime, true)
-    publicIp.v4().then(ip => {
+    .addField(':globe_with_meridians: Website', 'https://🥐🤖.gq', true)
+    .addField(':fork_and_knife: Github', 'https://github.com/dotcomboom/Croissant', true)
+    .addField(':speech_balloon: repl.it Contest Submission (please upvote!)', 'https://repl.it/talk/challenge/Croissant/8805', true)
+    message.channel.send(embed).catch(console.error);
+    /*publicIp.v4().then(ip => {
       embed.addField(':mouse_three_button: IP Address', ip, true)
         message.channel.send(embed).catch(console.error);
-    });
+    });*/
 }

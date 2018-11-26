@@ -1,19 +1,23 @@
 const Discord = require("discord.js");
-const translate = require("google-translate-api");
+const translate = require("translate");
 
 exports.run = (client, message, args) => {
-  
+  translate.engine = 'yandex';
+  translate.key = process.env.tkey;
+translate('Hello world', 'es').then(text => {
+  console.log(text);  // Hola mundo
+});
+
     if (args.length > 0) {
     let engrish = args.join(' ');
-    
-    translate(engrish, {to: 'japanese'}).then(res => {
-      engrish = res.text;
-      translate(engrish, {to: 'esperanto'}).then(res => {
-        engrish = res.text;
-        translate(engrish, {to: 'arabic'}).then(res => {
-          engrish = res.text;
-          translate(engrish, {to: 'english'}).then(res => {
-            engrish = res.text;
+    translate(engrish, 'japanese').then(text => {
+      engrish = text;
+      translate(engrish, 'chinese').then(text => {
+        engrish = text;
+        translate(engrish, 'arabic').then(text => {
+          engrish = text;
+          translate(engrish, 'english').then(text => {
+            engrish = text;
             
             let color = "#ffa500"
             if (message.guild !== null) {
